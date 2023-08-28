@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Home Page</title>
+  <style>
+    body {
+      background-image: url('img/main_bg.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+    .button-container {
+      text-align: center;
+      padding-top: 50px;
+    }
+    .heading-container {
+      text-align: center;
+      padding-top: 250px;
+    }
+    .heading {
+      display: inline-block;
+      background-color: #FF5733; /* Background color of the heading */
+      padding: 20px;
+      border-radius: 50%; /* Makes the background oval */
+      color: white;
+    }
+    button {
+      background-color: #4CAF50;
+      border: none;
+      border-radius: 50px;
+      color: white;
+      padding: 10px 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px 2px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<div class="heading-container">
+  <h1 class="heading">SELECT YOUR OPTION</h1>
+</div>
+
+<div class="button-container">
+  <button onclick="window.location.href = 'html/appointment.html';">BOOK AN APPOINTMENT</button>
+  <button onclick="window.location.href = 'html/login.html';">ORDER MEDICINES</button>
+</div>
+
+</body>
+</html>

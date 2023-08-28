@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Appointment Booking</title>
+    <style type="text/css">
+        *{
+            margin: 0;
+        }
+       h1{
+        width: 310px;
+        height: 5vh;
+        display: inline-flex;
+        background: orange;
+        padding: 40px;
+        border-radius: 70%;
+        align-items: center;
+       }
+        body
+        {
+            background-image:url('medical.jpg');
+            height: 100vh;
+            width: 97%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        form
+        {
+            width: 310px;
+            height: auto;
+            padding: 40px;
+            border-radius: 20px;
+            background: lightgrey;
+        }
+           .button-container {
+            display: flex;
+            justify-content: center; /* Center the button horizontally */
+            width: 100%; /* Full width of the form */
+            margin-top: 20px; /* Add spacing between button and other elements */
+        }
+        #submit-button {
+            background-color: green; /* Set button background color to green */
+            color: white; /* Set text color to white */
+            border: none; /* Remove button border */
+            padding: 10px 20px; /* Add padding to the button */
+            border-radius: 5px; /* Add border radius */
+            cursor: pointer; /* Change cursor to indicate interactivity */
+        }
+    </style>
+</head>
+<body>
+    <div>
+    <h1>.......Buy Medicines......</h1>
+    
+    <form method="post" name="medic" id="medic">
+        <label for="patient_name">Patient Name:</label>
+        <input type="text" id="patient_name" name="patient_name" required><br><br>
+        
+        <label for="patient_age">Patient Age:</label>
+        <input type="number" id="patient_age" name="patient_age" required><br><br>
+        
+        <label for="patient_weight">Patient Weight (kg):</label>
+        <input type="number" id="patient_weight" name="patient_weight" step="0.1"><br><br>
+          <label for="mobile_number">Mobile Number:</label>
+            <input type="tel" id="mobile_number" name="mobile_number" required pattern="[0-9]{10}"><br><br>
+           <label for="Medicines">Select Medicines:</label>
+        <select id="Medicines" name="Medicines">
+            <option value="Paracitamol">Paracitamol</option>
+            <option value="Disprin">Disprin</option>
+            <option value="Dolo">Dolo</option>
+            <option value="Combiflame">Combiflame</option>
+            <option value="Cough-Syrup">Cough-Syrup</option>
+        </select><br><br>
+           <label for="Mg">Select Mg:</label>
+        <select id="Mg" name="Mg">
+            <option value="100">100</option>
+            <option value="500">500</option>
+            <option value="1000">1000</option>
+        </select><br><br>
+        <label for="quantity">Enter Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required><br><br>
+        <div class="button-container">
+                <input type="submit" value="Buy" name="submit" id="submit-button">
+        </div>
+       </form>
+    </div>
+    <script>
+            const scriptURL = 'https://script.google.com/macros/s/AKfycbxJiZAGpE_VZ93ogIuhYqq94h2mqmD_R6MoLqWa5TEGQJAGlJHSLZYF1QzcQjizUG2jEQ/exec'
+            const form = document.forms['medic']
+          
+            form.addEventListener('submit', e => {
+              e.preventDefault()
+              fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => alert("Thank you! your form is submitted successfully." ))
+                .then(() => {  window.location.reload(); })
+                .catch(error => console.error('Error!', error.message))
+            })
+          </script>
+</body>
+</html>
